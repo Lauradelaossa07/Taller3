@@ -12,9 +12,9 @@ package taller3;
 public class Song {
     private String title;
     private int identifier;
-    private int date;
+    int date;
     private float duration;
-    private String genre;
+    String genre;
     private String detail;
 
     public Song(String title, int identifier, int date, float duration, String genre, String detail) {
