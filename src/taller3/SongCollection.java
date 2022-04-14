@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author Laura
  */
 public class SongCollection {
-    private ArrayList<Song> song;
+    private final ArrayList<Song> song;
     
     public SongCollection(){
         song = new ArrayList<>();
@@ -35,11 +35,18 @@ public class SongCollection {
         }
     }
     
-    public void SearchGenre(String genre){
+    public void SearchGenre(String genr){
         for(int i =0; i<song.size();i++){
-            if (genre== song.get(i).getGenre()){
+            if(song.get(i).genre.equals(genr) ){
                 System.out.println(song.get(i).getTitle());
-                
+            }
+        }
+    }
+    
+    public void Year(int dat){
+        for(int i = 0; i<song.size();i++){
+            if(song.get(i).date == dat){
+                System.out.println(song.get(i).getTitle());
             }
         }
     }
