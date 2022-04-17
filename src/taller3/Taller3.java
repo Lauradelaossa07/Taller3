@@ -18,18 +18,54 @@ public class Taller3 {
     int option = 0;
     do{
         option= Integer.parseInt(JOptionPane.showInputDialog("Que deseas hacer con las canciones a continuacion:\n\n"
-                                                             +"1 Filtrar por genero\n"
-                                                             +"2 Filtrar por año\n"
-                                                             +"3 Mostrar las lista de canciones\n"
-                                                             +"4 Salir"
-                                                             +"\n Seleccione una opción del 1 al 4"));
-    }while(option <= 0 || option >4);
+                                                             +"1 Crear PlayList\n"
+                                                             +"2 Filtrar por genero\n"
+                                                             +"3 Filtrar por año\n"
+                                                             +"4 Mostrar las lista de canciones\n"
+                                                             +"5 Salir"
+                                                             +"\n Seleccione una opción del 1 al 5"));
+    }while(option <= 0 || option >5);
     return option;
     }
+
+    static void listOption(ArrayList<Song> song){
+        int x = 0;
+        ArrayList list = new ArrayList();
         
+        while(x<6){
+            if(x<6){
+                for(int i = 0; i < song.size(); i++){
+                    System.out.println(i+""+song);
+                }
+            }
+            
+            Scanner consol = new Scanner(System.in);
+            System.out.println("Elige la musica a agregar en tu PlayList");           
+            x = Integer.parseInt(consol.nextLine());
+            
+            switch(x){
+                case 1:
+                    list.add(song);             
+                case 2:
+                    list.add(song);
+                case 3:
+                    list.add(song);
+                case 4:
+                    list.add(song);
+                case 5:
+                    list.add(song);
+                case 6:
+                    list.add(song);
+                default :
+                    System.out.println("Programa finalizado");
+            }
+        }
+        System.out.println(list);
+    }
+    
     public static void main(String[] args) {
+        
         Scanner console = new Scanner(System.in);
-        Scanner opc = new Scanner(System.in);
         int option;
         
         
@@ -41,8 +77,8 @@ public class Taller3 {
         collection.AddSong("happy", 5, 2018, (float) 2.5, "jazz", "premio gramy");
         collection.AddSong("make ", 6, 2014, (float) 4.9, "jazz", "cancion del año");
         
-
-       
+        
+        
        //System.out.println("De cual genero deseas ver"+"\npop"+"\nrock");
        //String genre = console.next();
        //System.out.println("Las canciones filtradas por el genero "+genre+" son:");
@@ -65,26 +101,28 @@ public class Taller3 {
             
             switch (option){
                 case 1:
+                    break;
+                case 2:
                     System.out.println("1. Escriba el genero que desea consultar"+"\npop"+"\nrock"+"\nJazz");
                     String genre = console.next();
                     System.out.println("Las canciones filtradas por el genero "+genre+" son:");
                     collection.SearchGenre(genre);
                     break;
-                case 2:
+                case 3:
                     System.out.println("2. Filtar por año, ingresa el año: 2013,2014,2015,2016,2017,2018");
                     int date = console.nextInt();
                     System.out.println("Las canciones filtradas por el año "+date+" son:");
                     collection.Year(date);
                     break;
-                case 3:
-                    System.out.println("3.Mostar lista de canciones: ");
+                case 4:
+                    System.out.println("3. Mostar lista de canciones: ");
                     System.out.println(" SONGS ");
                     collection.ViewSong();
                     break;
             }
         }
-        while(option !=4);
+        while(option !=5);
 
     }
-    
+
 }
