@@ -25,7 +25,7 @@ public class SongCollection {
    
     public void ViewSong(){
         for(int i =0; i<song.size();i++){
-            System.out.println(song.get(i).getTitle());
+            System.out.println(song.get(i).getTitle()+" "+song.get(i).getGenre());
         }
     }
     
