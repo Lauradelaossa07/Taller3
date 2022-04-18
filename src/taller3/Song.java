@@ -6,16 +6,16 @@
 package taller3;
 
 /**
- *
+ * @author Jonathan Emilio Brito Avilez
  * @author Laura
  */
-public class Song {
-    private String title;
-    private int identifier;
-    int date;
-    private float duration;
-    String genre;
-    private String detail;
+public abstract class Song {
+     public String title;
+    public int identifier;
+    public int date;
+    public float duration;
+    public String genre;
+    public String detail;
 
     public Song(String title, int identifier, int date, float duration, String genre, String detail) {
         this.title = title;
@@ -74,7 +74,8 @@ public class Song {
         this.detail = detail;
     }
     
-   
-    
-    
+    public String toString() {
+        return "Music{" + "Title=" + title + ", Date=" + date + ", Duration=" + 
+                duration + ", Gender=" + genre + ", Description" + detail + "}";
+    }  
 }
