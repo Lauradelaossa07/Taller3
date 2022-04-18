@@ -5,15 +5,17 @@
  */
 package taller3;
 
+import java.awt.Menu;
 import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
+import java.util.List;
 /**
- *
+ * @author Jonathan Emilio Brito Avilez
  * @author Laura
  */
 public class Taller3 {
-
+    
     public static int menu(){
     int option = 0;
     do{
@@ -21,21 +23,20 @@ public class Taller3 {
                                                              +"1 Crear PlayList\n"
                                                              +"2 Filtrar por genero\n"
                                                              +"3 Filtrar por año\n"
-                                                             +"4 Mostrar las lista de canciones\n"
-                                                             +"5 Salir"
-                                                             +"\n Seleccione una opción del 1 al 5"));
+                                                             +"4 Salir"
+                                                             +"\n Seleccione una opción del 1 al 4"));
     }while(option <= 0 || option >5);
     return option;
     }
-
-    static void listOption(ArrayList<Song> song){
+    
+        static void listOption(SongCollection[] collection){
         int x = 0;
         ArrayList list = new ArrayList();
         
         while(x<6){
             if(x<6){
-                for(int i = 0; i < song.size(); i++){
-                    System.out.println(i+""+song);
+                for(int i = 0; i < collection.length; i++){
+                    System.out.println(i+" "+collection[i].title);
                 }
             }
             
@@ -45,84 +46,84 @@ public class Taller3 {
             
             switch(x){
                 case 1:
-                    list.add(song);             
+                    list.add(collection[0].title);
+                    break;
                 case 2:
-                    list.add(song);
+                    list.add(collection[1].title);
+                    break;
                 case 3:
-                    list.add(song);
+                    list.add(collection[2].title);
+                    break;
                 case 4:
-                    list.add(song);
+                    list.add(collection[3].title);
+                    break;
                 case 5:
-                    list.add(song);
+                    list.add(collection[4].title);
+                    break;
                 case 6:
-                    list.add(song);
+                    list.add(collection[5].title);
+                    break;
                 default :
                     System.out.println("Programa finalizado");
             }
         }
         System.out.println(list);
     }
-    
     public static void main(String[] args) {
         
         Scanner console = new Scanner(System.in);
+        SongCollection collection[] = new SongCollection[6];
+        FilterSong filter = new FilterSong();
+        ArrayList<SongCollection> SongF = new ArrayList();
         int option;
         
+        collection[0] = new SongCollection("love", 1, 2017, (float) 3.5, "pop", "cancion");
+        collection[1] = new SongCollection("bad", 2, 2016, (float) 4.5, "pop", "cancion del año");
+        collection[2] = new SongCollection("happy", 3, 2015, (float) 4.1, "rock", "premio gramy");
+        collection[3] = new SongCollection("make ", 4, 2013, (float) 4.5, "rock", "cancion del año");
+        collection[4] = new SongCollection("happy", 5, 2018, (float) 2.5, "jazz", "premio gramy");
+        collection[5] = new SongCollection("make ", 6, 2014, (float) 4.9, "jazz", "cancion del año");
         
-        SongCollection collection = new SongCollection();
-        collection.AddSong("love", 1, 2017, (float) 3.5, "pop", "cancion");
-        collection.AddSong("bad", 2, 2016, (float) 4.5, "pop", "cancion del año");
-        collection.AddSong("happy", 3, 2015, (float) 4.1, "rock", "premio gramy");
-        collection.AddSong("make ", 4, 2013, (float) 4.5, "rock", "cancion del año");
-        collection.AddSong("happy", 5, 2018, (float) 2.5, "jazz", "premio gramy");
-        collection.AddSong("make ", 6, 2014, (float) 4.9, "jazz", "cancion del año");
+        SongF.add(collection[0]);
+        SongF.add(collection[1]);
+        SongF.add(collection[2]);
+        SongF.add(collection[3]);
+        SongF.add(collection[4]);
+        SongF.add(collection[5]);
         
+        filter.FilterYearDuration(SongF);
         
-        
-       //System.out.println("De cual genero deseas ver"+"\npop"+"\nrock");
-       //String genre = console.next();
-       //System.out.println("Las canciones filtradas por el genero "+genre+" son:");
-       //collection.SearchGenre(genre);
-       // System.out.println("\n\nDe cual año deseas ver"+"\n2019"+"\n2016"+"\n2015"+"\n2013"+"\n2020"+"\n2014");
-       //int date = console.nextInt();
-       // System.out.println("Las canciones filtradas por el año "+date+" son:");
-       //collection.Year(date);
-       
-          do
+        do
         {
             option =menu();
-//            System.out.println("choose one of the options: ");
-//            System.out.println("\n");
-//            System.out.println("1. Escriba el genero que desea consultar"+"\npop"+"\nrock"+"\nJazz");
-//            System.out.println("\n");
-//            System.out.println("2. Filtar por año, ingresa el año: 2013,2014,2015,2016,2017,2018");
-//            System.out.println("3.Mostar lista de canciones: ");
-//            System.out.println("4.Exit ");
             
             switch (option){
                 case 1:
+                    listOption(collection);
                     break;
                 case 2:
-                    System.out.println("1. Escriba el genero que desea consultar"+"\npop"+"\nrock"+"\nJazz");
+                    System.out.println("Escriba el genero que desea consultar\n"
+                                       +"pop\n"
+                                       +"rock\n"
+                                       +"Jazz");
                     String genre = console.next();
                     System.out.println("Las canciones filtradas por el genero "+genre+" son:");
-                    collection.SearchGenre(genre);
+                    List<SongCollection> Listfilter = filter.FilterGenre(collection, genre);
+                    for(int i = 0; i<Listfilter.size();i++){
+                        System.out.println(Listfilter.get(i).title);
+                    }
                     break;
                 case 3:
-                    System.out.println("2. Filtar por año, ingresa el año: 2013,2014,2015,2016,2017,2018");
+                    System.out.println("Filtar por año, ingresa el año: 2013,2014,2015,2016,2017,2018");
                     int date = console.nextInt();
                     System.out.println("Las canciones filtradas por el año "+date+" son:");
-                    collection.Year(date);
-                    break;
-                case 4:
-                    System.out.println("3. Mostar lista de canciones: ");
-                    System.out.println(" SONGS ");
-                    collection.ViewSong();
+                    List<SongCollection> ListFilter = filter.FilterYear(collection, date);
+                    for(int i = 0; i<ListFilter.size();i++){
+                        System.out.println(ListFilter.get(i).title);
+                    }
                     break;
             }
         }
-        while(option !=5);
-
+        while(option !=4);
     }
-
 }
