@@ -6,6 +6,8 @@
 package taller3;
 
 /**
+ * Clase abstracta contiene los atributos principales a heredar a su clase hija
+ * y los metodos get y set de cada atributo, ademas los metodos abstractos
  * @author Jonathan Emilio Brito Avilez
  * @author Laura
  */
@@ -17,6 +19,15 @@ public abstract class Song {
     public String genre;
     public String detail;
 
+    /**
+     * Constructor de la clase abstracta
+     * @param title
+     * @param identifier
+     * @param date
+     * @param duration
+     * @param genre
+     * @param detail 
+     */
     public Song(String title, int identifier, int date, float duration, String genre, String detail) {
         this.title = title;
         this.identifier = identifier;
@@ -73,6 +84,12 @@ public abstract class Song {
     public void setDetail(String detail) {
         this.detail = detail;
     }
+    
+    /**
+    * Metodo creado con el fin de mostrar la informacion de las muscias
+    * de manera mas clara
+    * @return informacion estructurada de cada canción
+    */
     
     public String toString() {
         return "Music{" + "Title=" + title + ", Date=" + date + ", Duration=" + 
