@@ -6,10 +6,17 @@
 package taller3;
 
 /**
+ * Esta clase hereda de la clase abstracta sus atributos y metodos
+ * nos permite poder instanciar desde nuestra clase main un nuevo objeto
  * @author Jonathan Emilio Brito Avilez
  * @author Laura
  */
 public class SongCollection extends Song{
+    
+   /**
+   * contador creado para generar un Id por cada objeto que se cree de la clase
+   */
+    
     static int musicCounter =0;
     private int idMusic;
 
@@ -17,6 +24,11 @@ public class SongCollection extends Song{
         super(title, identifier, date, duration, genre, detail);
         this.idMusic=++ SongCollection.musicCounter;
     }
+    
+    /**
+    * metodo usado para obtener el id que se generara por objeto
+    * @return id
+    */
     
     public String getTitle(){
         return this.title;
