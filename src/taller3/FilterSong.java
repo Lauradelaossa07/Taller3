@@ -12,7 +12,17 @@ import java.util.List;
  * @author Jonathan Emilio Brito Avilez
  */
 public class FilterSong implements ISong{
-
+    
+/**
+ * Implementacion del metodo FiltrarGenerso en el cual le ponemos los parametros Lista y Genero
+ * llamamos Album como vector luego se crea un for el cual me va recorrer el vector Album
+ * una vez termine de recorrerlo va hacer una comparacion de lista en la posicion i con el parametro
+ * Genero ignorandome los mayusculas y minisculas una vez la comparacion sea verdadera mostrara
+ * mostrara todos los albunes del genero comparado 
+ * @param list
+ * @param Gender
+ * @return 
+ */
     @Override
     public List<SongCollection> FilterGenre(SongCollection[] list, String Gender) {
         List<SongCollection> SongC = new ArrayList();
@@ -24,7 +34,16 @@ public class FilterSong implements ISong{
         }
         return SongC;
     }
-
+    
+/**
+ * Implementacion del metodo FiltrarAño en el cual le ponemos los parametros Lista y Fecha
+ * llamamos Album como vector luego se crea un for el cual me va recorrer el vector Album
+ * una vez termine de recorrerlo va hacer una comparacion de lista en la posicion i con el parametro
+ * Fecha una vez la comparacion sea verdadera mostrara mostrara todos los albunes del año comparado 
+ * @param list
+ * @param Date
+ * @return 
+ */
     @Override
     public List<SongCollection> FilterYear(SongCollection[] list, int Date) {
         List<SongCollection> SongC = new ArrayList();
@@ -38,7 +57,12 @@ public class FilterSong implements ISong{
         
         return SongC; 
     }
-
+    
+    /**
+    * Metodo creado con el fin de ordenar la lista principal de músicas por año
+    * y duración aca aplicamos el metodo burbuja para comparar las fechas
+    * por posicion y posteriormente ir ordenando de menor a mayor
+    */
     @Override
     public void FilterYearDuration(ArrayList<SongCollection> SongF) {
         for (int i = 0; i<SongF.size();i++){
