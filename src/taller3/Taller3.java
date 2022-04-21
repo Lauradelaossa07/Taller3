@@ -5,16 +5,30 @@
  */
 package taller3;
 
+/**
+ * importaciones de librerias usadas en el programa
+ */
+
 import java.awt.Menu;
 import java.util.ArrayList;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 import java.util.List;
+
 /**
+ * El objetivo principal de la clase es llamar los metodos de las otras clases,
+ * permitir crear instancias de las clases y ejecutar el programa para comprobar
+ * su funcionalida
  * @author Jonathan Emilio Brito Avilez
  * @author Laura
  */
 public class Taller3 {
+    
+    /**
+     * Metodo creado para mostrar un menu en el cual el usuario eligira la 
+     * accion que desea llevar acabo
+     * @return 
+     */
     
     public static int menu(){
     int option = 0;
@@ -28,6 +42,12 @@ public class Taller3 {
     }while(option <= 0 || option >5);
     return option;
     }
+    
+    /**
+     * Metodo creado con el fin de recorrer el ArrayList, obtener los datos del mismo
+     * y agregar una cancion dependiendo de la opcion ingresada por el usuario
+     * @param collection contiene la informacion del ArrayList
+     */
     
         static void listOption(SongCollection[] collection){
         int x = 0;
@@ -76,7 +96,7 @@ public class Taller3 {
         FilterSong filter = new FilterSong();
         ArrayList<SongCollection> SongF = new ArrayList();
         int option;
-        
+       
         collection[0] = new SongCollection("love", 1, 2017, (float) 3.5, "pop", "cancion");
         collection[1] = new SongCollection("bad", 2, 2016, (float) 4.5, "pop", "cancion del año");
         collection[2] = new SongCollection("happy", 3, 2015, (float) 4.1, "rock", "premio gramy");
